@@ -11,7 +11,7 @@ def get_args():
     p.add_argument('sesh_hours', type=int, help="Hours spent this session")
     p.add_argument('--data_path', type=str, help="Path to csv file",  default='tracked_prod.csv')
     p.add_argument('--total_frags', type=int, help="Total fragments in dataset", default=10981) 
-    
+    p.add_argument('--update_csv', type=bool, help="Update CSV file", default=False) 
     
     return p.parse_args()
 
@@ -60,8 +60,7 @@ def update_df(df, the_data, path):
 
     df2 = pd.DataFrame(data=the_data)
     df = df.append(df2)
-    df.drop_duplicates()
-    df = df.astype(str)
+    df = df.drop_duplicates()
     df.to_csv(path, index=False)
     print('df updated')
     
@@ -74,9 +73,10 @@ if __name__ == '__main__':
     print('{} tagged'.format(data['tagged_this_session'][0]))
     print('{} tagged an hour this sesh'.format(data['avg_tag_hr_session'][0]))
     print('{} tagged an hour overall on average'.format(data['avg_tag_hr_total'][0]))
-    
-    update_df(df, data, p.data_path)
-    
+    print('{} fragments left to tag'.format(data['left_to_tag'][0]))
+    print('{} hours to go on dataset'.format(round(data['left_to_tag'][0] / data['avg_tag_hr_total'][0])))
+    if p.update_csv == True:
+        update_df(df, data, p.data_path)
 
 
 
