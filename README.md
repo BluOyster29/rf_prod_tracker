@@ -2,7 +2,7 @@
 Script for tracking annotation progress
 
 ## Description 
-Just a little code i made to track my progress whilst annotating a dataset. You just enter in some informatio nand it will calculate some averages etc. 
+Just a little code i made to track my progress whilst annotating a dataset. You just enter in some information and it will calculate some averages etc and print it out. 
 
 ### Args 
 `start_tag`     : How much of the dataset is tagged when you begin
@@ -18,4 +18,4 @@ Just a little code i made to track my progress whilst annotating a dataset. You 
 `--total_frags` : Total number of examples in the dataset
 
 ### Output
-The program outputs a csv file with some basic statistics 
+The program can output a csv file with some basic statistics as well as print it to terminal
