@@ -23,9 +23,13 @@ The program can output a csv file with some basic statistics as well as print it
 `python3 prod_tracker.py 4949 5250 24 2`
 
 301 tagged
+
 150 tagged an hour this sesh
+
 219 tagged an hour overall on average
+
 5731 fragments left to tag
+
 26 hours to go on dataset
 
 
